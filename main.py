@@ -1,9 +1,7 @@
-services:
-  - type: web
-    name: solana-api-bot
-    env: python
-    buildCommand: ""
-    startCommand: python main.py
-    plan: free
-    branch: main
-    autoDeploy: true
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello from Solana bot API"}
